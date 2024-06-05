@@ -7,8 +7,13 @@ guessed = False
 
 
 def check_input(inp):
-    if not inp.isdigit() or int(inp) < 1 or int(inp) > 100:
-        inp = input('> please try again [1]-[100] or [q]: ')
+    input_incorrect = True
+    while input_incorrect:
+        if not inp.isdigit() or int(inp) < 1 or int(inp) > 100:
+            input_incorrect = True
+            inp = input('> please try again [1]-[100] or [q]: ')
+        else:
+            input_incorrect = False
     return int(inp)
 
 
